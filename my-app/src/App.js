@@ -7,6 +7,10 @@ import Colors from "./components/colors/colors.js";
 
 
 class App extends Component {
+  state = {
+    isDragging:false
+  };
+
   render() {
     return (
       <div className="App">
