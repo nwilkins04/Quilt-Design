@@ -8,6 +8,7 @@ import Rectangle from "./components/shapes/rectangle";
 import Square from "./components/shapes/square";
 import Triangle from "./components/shapes/triangle";
 import Hexagon from "./components/shapes/hexagon";
+import Rectangle2 from './components/shapes/reactangle2';
 
 class App extends Component {
   state = {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Stage width={window.innerWidth} height={window.innerHeight}>
                   <Layer>
                     <Rectangle/>
+                    <Rectangle2/>
                     <Square/>
                     <Triangle/>
                     <Hexagon/>
