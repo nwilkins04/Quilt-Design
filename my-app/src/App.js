@@ -6,6 +6,7 @@ import './App.css';
 import Colors from "./components/colors/colors.js";
 import Rectangle from "./components/shapes/rectangle";
 import Square from "./components/shapes/square";
+import Triangle from "./components/shapes/triangle";
 
 class App extends Component {
   state = {
@@ -22,24 +23,7 @@ class App extends Component {
                   <Layer>
                     <Rectangle/>
                     <Square/>
-                <Line
-                    x={10}
-                    y={125}
-                    points={[55, 50, 10, 50, 55, 100]}
-                    closed
-                    stroke="black"
-                    draggable
-                    onDragStart={() => {
-                      this.setState({
-                          isDragging: true
-                      });
-                    }}
-                    onDragEnd={() => {
-                      this.setState({
-                          isDragging: false
-                      });
-                    }} 
-                />
+                    <Triangle/>
                 <Line
                   x={30}
                   y={250}
