@@ -1,54 +1,40 @@
 import React, { Component } from 'react';
 import { Stage, Layer, Rect, Line, } from "react-konva";
-import {CirclePicker } from 'react-color';
 
 import './App.css';
 // import Shapes from "./components/shapes/shapes.js";
-// import Colors from "./components/colors/colors.js";
+// import Triangle from './components/shapes/shapes.js';
+import Colors from "./components/colors/colors.js";
 
-
+import Rectangle from "./components/shapes/rectangle";
 
 class App extends Component {
   state = {
     isDragging: false,
   };
 
+  // for color change here:
+  // handleClick = () => {
+  //   this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  // };
+
+  // handleClose = () => {
+  //   this.setState({ displayColorPicker : false})
+  // };
+
+  // handleChange = (color) => {
+  //   this.setState({ color: color.rgb })
+  // };
+
   render() {
     return (
       <div className="App">
         <header className="App-header"> Design Your Quilt</header>
           <div className="container">
-              <div className="ColorDisplay">Colors?
-                {/* <Colors/> */}
-                <CirclePicker/>
-              </div>
-              <div className="QuiltDisplay">Hopefully quilt shows up here
-              </div>
               <div className="ShapeDisplay">Shapes?
-                {/* <Shapes/> */}
                 <Stage width={window.innerWidth} height={window.innerHeight}>
                   <Layer>
-                  <Rect
-                      x={20}
-                      y={25}
-                      width={200}
-                      height={50}
-                      stroke="black"
-                      draggable
-                      onDragStart={() => {
-                          this.setState({
-                              isDragging: true
-                          });
-                      }}
-                      onDragEnd={() => {
-                          this.setState({
-                              isDragging: false
-                          });
-                      }} 
-                  />
-                </Layer>
-                
-                <Layer>
+                  <Rectangle/>
                 <Rect
                     x={20}
                     y={100}
@@ -105,6 +91,10 @@ class App extends Component {
                 />
                 </Layer>
                 </Stage>
+              </div>
+              <div className="QuiltDisplay">Place Shapes Here</div>
+              <div className="ColorDisplay">
+                  <Colors/>
               </div>
           </div>
       </div>

@@ -1,25 +1,53 @@
-import React from "react";
-import { Stage, Layer, Rect, Line, } from "react-konva";
+// import React from "react";
+// import { Stage, Layer, Rect, Line, } from "react-konva";
 
 import "./shapes.css";
 
-var stage = new Stage({
-    container: 'container',
-    width: window.innerWidth,
-    height: window.innerHeight
-});
+// var width = window.innerWidth;
+// var height = window.innerHeight;
+// var stage = new Konva.Stage ({
+//     container: 'container',
+//     width: width,
+//     height: height
+// });
+// var layer = new Konva.Layer();
+// var triangle = new Konva.RegularPolygon({
+//     x: 80,
+//     y: 120,
+//     sides: 3,
+//     radius: 50,
+//     fill: '#00D2FF',
+//     stroke: "black"
+// });
 
-var layer = new Layer();
+// function Triangle(){
+//     var width = window.innerWidth;
+// var height = window.innerHeight;
+// var stage = new Konva.Stage ({
+//     container: 'container',
+//     width: width,
+//     height: height
+// });
+// var layer = new Konva.Layer();
+// var triangle = new Konva.RegularPolygon({
+//     x: 80,
+//     y: 120,
+//     sides: 3,
+//     radius: 50,
+//     fill: '#00D2FF',
+//     stroke: "black"
+// });
 
-var hexagon = new Haxagon({
-    x: 100,
-    y: 150,
-    sides: 6,
-    radius: 70,
-    stroke: 'black',
-});
-
-
+//     return(
+//         triangle.on('click', function() {
+//             var fill = this.fill() === 'yellow' ? '#00D2FF' : 'yellow';
+//             this.fill(fill);
+//             layer.draw();
+//         });
+//         layer.add(triangle);
+//         stage.add(layer);
+//     );
+// }
 
 // function Shapes() {
 //     return(
@@ -69,4 +97,4 @@ var hexagon = new Haxagon({
 //     );
 // };
 
-export default layer.add(hexagon);
+export default Triangle;

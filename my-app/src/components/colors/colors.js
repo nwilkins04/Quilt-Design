@@ -1,10 +1,9 @@
 import React from "react";
-import { SketchPicker } from "react-color";
 
 
 function Colors() {
     return(
-        <SketchPicker />
+        <h2>Click the shape to change colors</h2>
     )
 };
 
