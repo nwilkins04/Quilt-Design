@@ -1,30 +1,16 @@
 import React, { Component } from 'react';
-import { Stage, Layer, Rect, Line, } from "react-konva";
+import { Stage, Layer, Line, } from "react-konva";
 
 import './App.css';
-// import Shapes from "./components/shapes/shapes.js";
-// import Triangle from './components/shapes/shapes.js';
-import Colors from "./components/colors/colors.js";
 
+import Colors from "./components/colors/colors.js";
 import Rectangle from "./components/shapes/rectangle";
+import Square from "./components/shapes/square";
 
 class App extends Component {
   state = {
     isDragging: false,
   };
-
-  // for color change here:
-  // handleClick = () => {
-  //   this.setState({ displayColorPicker: !this.state.displayColorPicker })
-  // };
-
-  // handleClose = () => {
-  //   this.setState({ displayColorPicker : false})
-  // };
-
-  // handleChange = (color) => {
-  //   this.setState({ color: color.rgb })
-  // };
 
   render() {
     return (
@@ -34,25 +20,8 @@ class App extends Component {
               <div className="ShapeDisplay">Shapes?
                 <Stage width={window.innerWidth} height={window.innerHeight}>
                   <Layer>
-                  <Rectangle/>
-                <Rect
-                    x={20}
-                    y={100}
-                    width={50}
-                    height={50}
-                    stroke="black"
-                    draggable
-                    onDragStart={() => {
-                      this.setState({
-                          isDragging: true
-                      });
-                    }}
-                    onDragEnd={() => {
-                      this.setState({
-                          isDragging: false
-                      });
-                    }} 
-                />
+                    <Rectangle/>
+                    <Square/>
                 <Line
                     x={10}
                     y={125}

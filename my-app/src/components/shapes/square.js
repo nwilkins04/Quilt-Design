@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Rect } from "react-konva";
 import "./shapes.css";
 
-class Rectangle extends Component {
+class Square extends Component {
     state = {
         isDragging: false,
         fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black"],
@@ -18,8 +18,8 @@ class Rectangle extends Component {
         return(
         <Rect onClick={(this.colorChange)}
             x={20}
-            y={25}
-            width={200}
+            y={100}
+            width={50}
             height={50}
             stroke="black"
             draggable
@@ -39,4 +39,4 @@ class Rectangle extends Component {
     };
 }
 
-export default Rectangle;
+export default Square;
