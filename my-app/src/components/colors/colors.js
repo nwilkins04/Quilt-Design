@@ -71,6 +71,14 @@ function Colors() {
                         stroke="black"
                         fill="black"
                     />
+                    <Rect
+                        x={500}
+                        y={1}
+                        height={50}
+                        width={50}
+                        stroke="black"
+                        fill="white"
+                    />
                 </Layer>
             </Stage>
         </div>

@@ -5,7 +5,7 @@ import "./shapes.css";
 class Triangle extends Component {
     state = {
         isDragging: false,
-        fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black"],
+        fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
         colorIndex: 0
     };
     
