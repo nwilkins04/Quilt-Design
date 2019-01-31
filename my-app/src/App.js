@@ -7,6 +7,7 @@ import Colors from "./components/colors/colors.js";
 import Rectangle from "./components/shapes/rectangle";
 import Square from "./components/shapes/square";
 import Triangle from "./components/shapes/triangle";
+import Triangle2 from "./components/shapes/triangle2";
 import Hexagon from "./components/shapes/hexagon";
 import Hexagon2 from "./components/shapes/hexagon2";
 import Hexagon3 from "./components/shapes/hexagon3";
@@ -30,6 +31,7 @@ class App extends Component {
                     <Rectangle2/>
                     <Square/>
                     <Triangle/>
+                    <Triangle2/>
                     <Hexagon/>
                     <Hexagon2/>
                     <Hexagon3/>
