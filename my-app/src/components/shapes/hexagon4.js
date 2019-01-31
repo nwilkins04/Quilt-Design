@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Line } from "react-konva";
 import "./shapes.css";
 
-class Hexagon3 extends Component {
+class Hexagon4 extends Component {
     state = {
         isDragging: false,
         fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
@@ -17,9 +17,9 @@ class Hexagon3 extends Component {
     render() {
         return(
         <Line onClick={(this.colorChange)}
-            x={250}
-            y={250}
-            points={[ 75, 40, 50, 85, 0, 85, -25, 40]}
+            x={130}
+            y={100}
+            points={[0, -5, 50, -5, 75, 40, 50, 40, -25, 40]}
             closed
             stroke="black"
             draggable
@@ -39,4 +39,4 @@ class Hexagon3 extends Component {
     };
 }
 
-export default Hexagon3;
+export default Hexagon4;

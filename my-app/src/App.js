@@ -11,6 +11,7 @@ import Triangle2 from "./components/shapes/triangle2";
 import Hexagon from "./components/shapes/hexagon";
 import Hexagon2 from "./components/shapes/hexagon2";
 import Hexagon3 from "./components/shapes/hexagon3";
+import Hexagon4 from "./components/shapes/hexagon4";
 import Rectangle2 from './components/shapes/reactangle2';
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
                     <Hexagon/>
                     <Hexagon2/>
                     <Hexagon3/>
+                    <Hexagon4/>
                 </Layer>
                 </Stage>
               </div>
