@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Line } from "react-konva";
 import "./shapes.css";
 
-class Hexagon extends Component {
+class Diamond extends Component {
     state = {
         isDragging: false,
         fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
@@ -14,14 +14,13 @@ class Hexagon extends Component {
         this.setState({ colorIndex: newIndex})
     }
 
-    
 
     render() {
         return(
         <Line onClick={(this.colorChange)}
-            x={30}
-            y={250}
-            points={[0, -5, 50, -5, 75, 40, 50, 85, 0, 85, -25, 40]}
+            x={350}
+            y={200}
+            points={[0, -5, 25, 40, 2, 80, 0, 85, -25, 40]}
             closed
             stroke="black"
             draggable
@@ -41,5 +40,4 @@ class Hexagon extends Component {
     };
 }
 
-
-export default Hexagon;
+export default Diamond;

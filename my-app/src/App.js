@@ -13,6 +13,7 @@ import Hexagon2 from "./components/shapes/hexagon2";
 import Hexagon3 from "./components/shapes/hexagon3";
 import Hexagon4 from "./components/shapes/hexagon4";
 import Rectangle2 from './components/shapes/reactangle2';
+import Diamond from "./components/shapes/diamond";
 
 class App extends Component {
   state = {
@@ -33,6 +34,7 @@ class App extends Component {
                     <Square/>
                     <Triangle/>
                     <Triangle2/>
+                    <Diamond/>
                     <Hexagon/>
                     <Hexagon2/>
                     <Hexagon3/>

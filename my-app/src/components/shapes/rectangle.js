@@ -6,7 +6,9 @@ class Rectangle extends Component {
     state = {
         isDragging: false,
         fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
-        colorIndex: 0
+        colorIndex: 0,
+        initalx: 20,
+        intialy: 25
     };
     
     colorChange = () => {
@@ -14,29 +16,46 @@ class Rectangle extends Component {
         this.setState({ colorIndex: newIndex})
     }
 
+    // copyShape = () => {
+    //     let 
+    // }
+
+    showShape () {
+            return(
+                <Rect onClick={(this.colorChange)}
+                x={this.state.initalx}
+                y={this.state.intialy}
+                width={200}
+                height={50}
+                stroke="black"
+                draggable
+                ref="rect"
+                fill={this.state.fill[this.state.colorIndex]}
+                onDragStart={() => {
+                    this.setState({
+                        initalx:this.x,
+                        intialy:this.y,
+                        isDragging: true
+                    });
+                }}
+                onDragEnd={this.handleDragEnd}
+            />
+            )
+        }
+    
+    handleDragEnd= (e) => {
+        console.log("something")
+         this.setState({
+             isDragging: false
+        })
+        this.showShape()
+        // console.log(this.refs.rect)
+    }
+
     render() {
         return(
-        <Rect onClick={(this.colorChange)}
-            x={20}
-            y={25}
-            width={200}
-            height={50}
-            stroke="black"
-            draggable
-            fill={this.state.fill[this.state.colorIndex]}
-            onDragStart={() => {
-                this.setState({
-                    isDragging: true
-                });
-            }}
-            onDragEnd={() => (
-                this.setState({
-                    isDragging: false
-                })
-            )}
-        />
-        );
-    };
+        this.showShape()
+        )};
 }
 
 export default Rectangle;
