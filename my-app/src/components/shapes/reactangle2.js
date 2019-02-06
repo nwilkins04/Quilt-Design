@@ -20,7 +20,7 @@ class Rectangle2 extends Component {
             x={250}
             y={25}
             width={50}
-            height={200}
+            height={100}
             stroke="black"
             draggable
             fill={this.state.fill[this.state.colorIndex]}

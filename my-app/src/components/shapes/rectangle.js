@@ -25,7 +25,7 @@ class Rectangle extends Component {
                 <Rect onClick={(this.colorChange)}
                 x={this.state.initalx}
                 y={this.state.intialy}
-                width={200}
+                width={100}
                 height={50}
                 stroke="black"
                 draggable
