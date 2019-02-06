@@ -16,10 +16,6 @@ class Rectangle extends Component {
         this.setState({ colorIndex: newIndex})
     }
 
-    // copyShape = () => {
-    //     let 
-    // }
-
     showShape () {
             return(
                 <Rect onClick={(this.colorChange)}
@@ -48,7 +44,10 @@ class Rectangle extends Component {
          this.setState({
              isDragging: false
         })
-        this.showShape()
+        this.setState({
+            initalx: 20,
+            intialy: 25
+        })
         // console.log(this.refs.rect)
     }
 

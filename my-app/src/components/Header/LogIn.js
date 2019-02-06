@@ -1,14 +1,49 @@
 import React, { Component } from "react";
+import Modal from "react-modal"; 
 
-import SignUp from "./SignUp.js";
+import Signup from "./SignUp";
+
+// import SignUp from "./SignUp.js";
 
 class Login extends Component {
 
+    constructor() {
+        super();
+
+        this.state = {
+            modalIsOpen: false
+        };
+
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+    }
+
+    openModal() {
+        this.setState({modalIsOpen: true});
+    }
+
+    afterOpenModal() {
+        this.subtitle.style.color = '#f00';
+    }
+
+    closeModal() {
+        this.setState({modalIsOpen: false});
+    }
+
     render() {
         return (
-            <button className="login" onClick={<SignUp/>}>
-                Login Here
-            </button>
+            <div>
+            <button className="login" onClick={this.openModal}>
+                Login Here </button>
+            <Modal
+                isOpen={this.state.modalIsOpen}
+                onAfterOpen={this.afterOpenModal}
+                onRequestClose={this.closeModal}
+            >
+                <Signup/>
+            </Modal>
+            </div>
         )
     }
 }

@@ -4,7 +4,6 @@ import { Stage, Layer, } from "react-konva";
 import './App.css';
 
 import Title from "./components/Header/Title.js";
-import Login from "./components/Header/LogIn.js";
 import Colors from "./components/colors/colors.js";
 import Rectangle from "./components/shapes/rectangle";
 import Square from "./components/shapes/square";
@@ -26,7 +25,6 @@ class App extends Component {
     return (
       <div className="App">
         <Title/> 
-        <Login/>
           <div className="container">
               <div className="ShapeDisplay">
                 <h2>Shapes</h2>
