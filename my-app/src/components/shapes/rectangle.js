@@ -44,10 +44,10 @@ class Rectangle extends Component {
          this.setState({
              isDragging: false
         })
-        this.setState({
-            initalx: 20,
-            intialy: 25
-        })
+        // this.setState({
+        //     initalx: 20,
+        //     intialy: 25
+        // })
         // console.log(this.refs.rect)
     }
 

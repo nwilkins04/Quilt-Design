@@ -3,7 +3,6 @@ import Modal from "react-modal";
 
 import Signup from "./SignUp";
 
-// import SignUp from "./SignUp.js";
 
 class Login extends Component {
 
@@ -24,7 +23,7 @@ class Login extends Component {
     }
 
     afterOpenModal() {
-        this.subtitle.style.color = '#f00';
+       
     }
 
     closeModal() {
@@ -41,7 +40,7 @@ class Login extends Component {
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
             >
-                <Signup/>
+            <Signup/>
             </Modal>
             </div>
         )

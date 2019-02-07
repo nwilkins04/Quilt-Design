@@ -31,6 +31,7 @@ class App extends Component {
                 <Stage width={window.innerWidth} height={window.innerHeight}>
                   <Layer>
                     <Rectangle/>
+                    <Rectangle/>
                     <Rectangle2/>
                     <Square/>
                     <Triangle/>

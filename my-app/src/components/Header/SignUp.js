@@ -7,18 +7,15 @@ class Signup extends Component {
 
     render () {
         return(
-            <Form>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+            <Form className="formModal">
+                <Form.Group controlId="formGroupEmail">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control size="lg" type="username" placeholder="Username" />
                 </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
+            <br />
+                <Form.Group controlId="formGroupPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control size="lg" type="password" placeholder="Password" />
                 </Form.Group>
   
                 <Button variant="primary" type="submit">
