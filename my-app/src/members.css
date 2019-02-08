@@ -1,4 +1,8 @@
-body {
+.memberPage {
+    background-color: red;
+}
+
+.container {
     background-color: red;
 }
 
