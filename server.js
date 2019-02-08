@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
     port: 3000,
     user: "root",
     password: "root",
-    database: "quilt"
+    database: "quilt_db"
 });
 
 connection.connect(function(err) {

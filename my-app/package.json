@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "express": "^4.16.4",
     "konva": "^2.6.0",
     "mysql": "^2.16.0",
     "react": "^16.7.0",
