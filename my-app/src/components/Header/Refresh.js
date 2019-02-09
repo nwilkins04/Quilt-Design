@@ -1,9 +1,14 @@
 import React, {Component} from "react";
 
 class Refresh extends Component {
+    
+    refreshPage = () => {
+        window.location.reload()
+    }
+    
     render() {
         return(
-            <button className="refreshButton">Refresh Page</button>
+            <button className="refreshButton" onClick={() => this.refreshPage()}>Refresh Page</button>
         )
     }
 };
