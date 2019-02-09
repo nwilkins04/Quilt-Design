@@ -14,6 +14,10 @@ class Square extends Component {
         this.setState({ colorIndex: newIndex})
     }
 
+    // handleClick = () => {
+    //     this.rect.cache();
+    // }
+
     render() {
         return(
         <Rect onClick={(this.colorChange)}

@@ -5,7 +5,7 @@ import './App.css';
 
 import Title from "./components/Header/Title.js";
 import Colors from "./components/colors/colors.js";
-import Rectangle from "./components/shapes/rectangle";
+
 import Square from "./components/shapes/square";
 import Triangle from "./components/shapes/triangle";
 import Triangle2 from "./components/shapes/triangle2";
@@ -14,6 +14,7 @@ import Hexagon2 from "./components/shapes/hexagon2";
 import Hexagon3 from "./components/shapes/hexagon3";
 import Hexagon4 from "./components/shapes/hexagon4";
 import Rectangle2 from './components/shapes/reactangle2';
+import Rectangle3 from "./components/shapes/rectangle3";
 import Diamond from "./components/shapes/diamond";
 
 class App extends Component {
@@ -30,9 +31,8 @@ class App extends Component {
                 <h2>Shapes</h2>
                 <Stage width={window.innerWidth} height={window.innerHeight}>
                   <Layer>
-                    <Rectangle/>
-                    <Rectangle/>
                     <Rectangle2/>
+                    <Rectangle3/>
                     <Square/>
                     <Triangle/>
                     <Triangle2/>
