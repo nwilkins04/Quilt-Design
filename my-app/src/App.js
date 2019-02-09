@@ -26,6 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <Title/> 
+        <button className="deleteButton">Delete Shape</button>
           <div className="container">
               <div className="ShapeDisplay">
                 <h2>Shapes</h2>
