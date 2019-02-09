@@ -3,7 +3,6 @@ import Modal from "react-modal";
 
 import Signup from "./SignUp";
 
-
 class Login extends Component {
 
     constructor() {

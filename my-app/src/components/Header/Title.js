@@ -6,7 +6,7 @@ class Title extends Component {
     render() {
         return(
             <header className="App-header">
-            Design Your Quilt
+            <strong>Design Your Quilt</strong>
             <Login/>
             </header>
         )

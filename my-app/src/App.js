@@ -5,6 +5,9 @@ import './App.css';
 
 import Title from "./components/Header/Title.js";
 import Colors from "./components/colors/colors.js";
+import Refresh from "./components/Header/Refresh";
+import Save from "./components/Header/Save";
+import Delete from "./components/Header/Delete";
 
 import Square from "./components/shapes/square";
 import Triangle from "./components/shapes/triangle";
@@ -26,7 +29,9 @@ class App extends Component {
     return (
       <div className="App">
         <Title/> 
-        <button className="deleteButton">Delete Shape</button>
+        <Delete/>
+        <Save/>
+        <Refresh/>
           <div className="container">
               <div className="ShapeDisplay">
                 <h2>Shapes</h2>
