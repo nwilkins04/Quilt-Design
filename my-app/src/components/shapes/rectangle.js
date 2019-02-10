@@ -6,9 +6,7 @@ class Rectangle extends Component {
     state = {
         isDragging: false,
         fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
-        colorIndex: 0,
-        initalx: 20,
-        intialy: 25
+        colorIndex: 0
     };
     
     colorChange = () => {
@@ -16,45 +14,29 @@ class Rectangle extends Component {
         this.setState({ colorIndex: newIndex})
     }
 
-    showShape () {
-            return(
-                <Rect onClick={(this.colorChange)}
-                x={this.state.initalx}
-                y={this.state.intialy}
-                width={100}
-                height={50}
-                stroke="black"
-                draggable
-                ref="rect"
-                fill={this.state.fill[this.state.colorIndex]}
-                onDragStart={() => {
-                    this.setState({
-                        initalx:this.x,
-                        intialy:this.y,
-                        isDragging: true
-                    });
-                }}
-                onDragEnd={this.handleDragEnd}
-            />
-            )
-        }
-    
-    handleDragEnd= (e) => {
-        console.log("something")
-         this.setState({
-             isDragging: false
-        })
-        // this.setState({
-        //     initalx: 20,
-        //     intialy: 25
-        // })
-        // console.log(this.refs.rect)
-    }
-
     render() {
         return(
-        this.showShape()
-        )};
+        <Rect onClick={(this.colorChange)}
+            x={325}
+            y={25}
+            width={50}
+            height={100}
+            stroke="black"
+            draggable
+            fill={this.state.fill[this.state.colorIndex]}
+            onDragStart={() => {
+                this.setState({
+                    isDragging: true
+                });
+            }}
+            onDragEnd={() => (
+                this.setState({
+                    isDragging: false
+                })
+            )}
+        />
+        );
+    };
 }
 
 export default Rectangle;

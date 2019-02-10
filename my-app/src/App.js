@@ -16,6 +16,7 @@ import Hexagon from "./components/shapes/hexagon";
 import Hexagon2 from "./components/shapes/hexagon2";
 import Hexagon3 from "./components/shapes/hexagon3";
 import Hexagon4 from "./components/shapes/hexagon4";
+import Rectangle from "./components/shapes/rectangle";
 import Rectangle2 from './components/shapes/reactangle2';
 import Rectangle3 from "./components/shapes/rectangle3";
 import Diamond from "./components/shapes/diamond";
@@ -41,7 +42,6 @@ class App extends Component {
       }
     ],
     fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
-    draggable: true,
   };
 
   handleClick = () => {
@@ -52,23 +52,26 @@ class App extends Component {
 
   handleDragStart = e => {
     e.target.setAttrs({
-      scaleX: 1.1,
-      scaleY: 1.1
-    });
-  };
-
-  handleDragEnd = e => {
-    e.target.to({
-      duration: 0.5,
       scaleX: 1,
       scaleY: 1,
     });
   };
 
-  // colorChange = () => {
-  //   let newIndex = (this.state.colorIndex + 1) % this.state.fill.length
-  //   this.setState({ colorIndex: newIndex})
-  // }
+  handleDragEnd = e => {
+    e.target.to({
+      scaleX: 1,
+      scaleY: 1,
+    });
+    console.log(window.innerWidth,e)
+    if(window.innerWidth){
+      console.log(this.state.canvas.x)
+    }
+  };
+
+  colorChange = () => {
+    let newIndex = (this.state.colorIndex + 1) % this.state.fill.length
+    this.setState({ colorIndex: newIndex})
+  };
 
   render() {
     return (
@@ -90,13 +93,18 @@ class App extends Component {
                       width={width}
                       height={height}
                       stroke="black"
-                      draggable={this.state.draggable}
-                      fill="lightgrey"
+                      draggable
+                      fill="black"
                       onDragStart={this.handleDragStart}
                       onDragEnd={this.handleDragEnd}
-                      onClick={this.handleClick}
+                      onClick={(this.handleClick)}
+                      // onClick=if x>700{
+                      //   then (OnClick={(this.colorChange)})
+                      //   else OnClick={(this.handleClick)}
+                      // }
                     />
                   ))}
+                    <Rectangle/>
                     <Rectangle2/>
                     <Rectangle3/>
                     <Square/>
@@ -119,7 +127,7 @@ class App extends Component {
           </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;
