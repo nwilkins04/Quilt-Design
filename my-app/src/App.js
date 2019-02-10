@@ -42,6 +42,7 @@ class App extends Component {
       }
     ],
     fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
+    colorIndex: 0
   };
 
   handleClick = () => {
@@ -73,7 +74,22 @@ class App extends Component {
     this.setState({ colorIndex: newIndex})
   };
 
+  handleDragStateStart = () => {
+    this.setState({isDragging:true});
+  }
+
+  handleDragStateEnd = () => {
+    this.setState({isDragging:false});
+  }
+
   render() {
+    const shapeProps = {
+      fill:this.state.fill, 
+      colorIndex:this.state.colorIndex, 
+      colChange:this.colorChange,
+      handleDragStateStart:this.handleDragStateStart,
+      handleDragStateEnd:this.handleDragStateEnd
+    }
     return (
       <div className="App">
         <Title/> 
@@ -104,7 +120,7 @@ class App extends Component {
                       // }
                     />
                   ))}
-                    <Rectangle/>
+                    {/* <Rectangle {...shapeProps}  />
                     <Rectangle2/>
                     <Rectangle3/>
                     <Square/>
@@ -114,7 +130,7 @@ class App extends Component {
                     <Hexagon/>
                     <Hexagon2/>
                     <Hexagon3/>
-                    <Hexagon4/>
+                    <Hexagon4/> */}
                 </Layer>
                 </Stage>
               </div>
