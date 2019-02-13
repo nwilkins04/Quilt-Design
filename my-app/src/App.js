@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Stage, Layer, Rect, } from "react-konva";
+import { Stage, Layer, Rect } from "react-konva";
 
 import './App.css';
 
@@ -9,25 +9,28 @@ import Refresh from "./components/Header/Refresh";
 import Save from "./components/Header/Save";
 import Delete from "./components/Header/Delete";
 
-import Square from "./components/shapes/square";
-import Triangle from "./components/shapes/triangle";
-import Triangle2 from "./components/shapes/triangle2";
-import Hexagon from "./components/shapes/hexagon";
-import Hexagon2 from "./components/shapes/hexagon2";
-import Hexagon3 from "./components/shapes/hexagon3";
-import Hexagon4 from "./components/shapes/hexagon4";
+// import Square from "./components/shapes/square";
+// import Triangle from "./components/shapes/triangle";
+// import Triangle2 from "./components/shapes/triangle2";
+// import Hexagon from "./components/shapes/hexagon";
+// import Hexagon2 from "./components/shapes/hexagon2";
+// import Hexagon3 from "./components/shapes/hexagon3";
+// import Hexagon4 from "./components/shapes/hexagon4";
 import Rectangle from "./components/shapes/rectangle";
-import Rectangle2 from './components/shapes/reactangle2';
-import Rectangle3 from "./components/shapes/rectangle3";
-import Diamond from "./components/shapes/diamond";
+// import Rectangle2 from './components/shapes/reactangle2';
+// import Rectangle3 from "./components/shapes/rectangle3";
+// import Diamond from "./components/shapes/diamond";
 
 const random = num => Math.floor(Math.random() * num) + 1;
 
-const newRectangle = () => ({
+const canvasMapOurs = [{shape:'rectangle', props:{x:325,y:25,stroke:'black',width:50, height:100}}, 
+  {shape:'rectangle', props:{x:250,y:50,stroke:'black',width:50, height:50}}]
+
+const componentMap = {'rectangle':Rectangle};
+
+const newShape = () => ({
   x: random(250),
-  y: random(300),
-  width: 50,
-  height: 100
+  y: random(300)
 });
 
 class App extends Component {
@@ -42,14 +45,21 @@ class App extends Component {
       }
     ],
     fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
-    colorIndex: 0
+    colorIndex: canvasMapOurs.map(item => 0),
   };
 
   handleClick = () => {
     this.setState(prevState => ({
-      canvas: [...prevState.canvas, { ...newRectangle() }]
+      canvas: [...prevState.canvas, { ...newShape() }]
     }));
   };
+
+  repeatingShape = (currx) => {
+    if (currx >= 720) {
+      this.colorChange(3)
+      console.log("here")
+    }
+  }
 
   handleDragStart = e => {
     e.target.setAttrs({
@@ -63,15 +73,19 @@ class App extends Component {
       scaleX: 1,
       scaleY: 1,
     });
-    console.log(window.innerWidth,e)
-    if(window.innerWidth){
-      console.log(this.state.canvas.x)
-    }
+    this.repeatingShape(e.evt.x)
+    console.log(e.evt.x)    
   };
 
-  colorChange = () => {
-    let newIndex = (this.state.colorIndex + 1) % this.state.fill.length
-    this.setState({ colorIndex: newIndex})
+  colorChange = (indexToChange) => {
+    const oldState = [...this.state.colorIndex];
+    const newValue = oldState[indexToChange] + 1;
+    const valueIsValid = this.state.fill[newValue];
+    if(valueIsValid){
+      oldState[indexToChange] = newValue
+      this.setState({ colorIndex: oldState})
+    }
+    console.log("part2")
   };
 
   handleDragStateStart = () => {
@@ -83,9 +97,9 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     const shapeProps = {
       fill:this.state.fill, 
-      colorIndex:this.state.colorIndex, 
       colChange:this.colorChange,
       handleDragStateStart:this.handleDragStateStart,
       handleDragStateEnd:this.handleDragStateEnd
@@ -101,13 +115,19 @@ class App extends Component {
                 <h2>Shapes</h2>
                 <Stage width={window.innerWidth} height={window.innerHeight}>
                   <Layer>
+                    {canvasMapOurs.map((shape, i)=> {
+                      const Component = componentMap[shape.shape];
+                      return (
+                        <Component key={i} colorIndex={this.state.colorIndex[i]} {...shapeProps} indexToChange={i} {...shape.props} />
+                      )
+                    })}
                   {this.state.canvas.map(({ height, width, x, y }, key) => (
                     <Rect
                       key={key}
                       x={x}
                       y={y}
-                      width={width}
-                      height={height}
+                      width={50}
+                      height={100}
                       stroke="black"
                       draggable
                       fill="black"
