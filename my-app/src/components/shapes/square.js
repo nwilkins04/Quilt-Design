@@ -4,40 +4,40 @@ import "./shapes.css";
 
 class Square extends Component {
     state = {
-        isDragging: false,
-        fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
-        colorIndex: 0
+        startX: this.props.x,
+        startY: this.props.y,
+        colorIndex: this.props.colorIndex
     };
-    
-    colorChange = () => {
-        let newIndex = (this.state.colorIndex + 1) % this.state.fill.length
-        this.setState({ colorIndex: newIndex})
+
+    handleDragStart = (event) => {
+
     }
 
-    // handleClick = () => {
-    //     this.rect.cache();
-    // }
+    colorChange = (e) => {
+        console.log("change color")
+        let newIndex = (this.state.colorIndex + 1) % this.props.colors.length
+        this.setState({
+            colorIndex: newIndex
+        }, () => {
+            e.target.setAttrs({
+                fill:this.props.colors[this.state.colorIndex]
+            })
+        })
+    }
 
     render() {
         return(
-        <Rect onClick={(this.colorChange)}
-            x={20}
-            y={100}
-            width={50}
-            height={50}
-            stroke="black"
+        <Rect 
+            x={this.props.x}
+            y={this.props.y}
+            width={this.props.width}
+            height={this.props.height}
+            stroke={this.props.stroke}
             draggable
-            fill={this.state.fill[this.state.colorIndex]}
-            onDragStart={() => {
-                this.setState({
-                    isDragging: true
-                });
-            }}
-            onDragEnd={() => (
-                this.setState({
-                    isDragging: false
-                })
-            )}
+            fill={this.props.colors[this.props.colorIndex]}
+            onDragStart={this.props.handleDragStart}
+            onDragEnd={this.props.handleDragEnd}
+            onClick={this.colorChange}
         />
         );
     };
