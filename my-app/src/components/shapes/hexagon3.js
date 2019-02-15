@@ -4,36 +4,40 @@ import "./shapes.css";
 
 class Hexagon3 extends Component {
     state = {
-        isDragging: false,
-        fill: ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"],
-        colorIndex: 0
-    };
-    
-    colorChange = () => {
-        let newIndex = (this.state.colorIndex + 1) % this.state.fill.length
-        this.setState({ colorIndex: newIndex})
+        startX: this.props.x,
+        startY: this.props.y,
+        colorIndex: this.props.colorIndex
+    }
+
+    handleDragStart = (event) => {
+
+    }
+
+    colorChange = (e) => {
+        console.log("change color")
+        let newIndex = (this.state.colorIndex + 1) % this.props.colors.length
+        this.setState({
+            colorIndex: newIndex
+        }, () => {
+            e.target.setAttrs({
+                fill:this.props.colors[this.state.colorIndex]
+            })
+        })
     }
 
     render() {
         return(
-        <Line onClick={(this.colorChange)}
-            x={250}
-            y={250}
-            points={[ 75, 40, 50, 85, 0, 85, -25, 40]}
+        <Line className="Hexagon3"
+            x={this.props.x}
+            y={this.props.y}
+            points={this.props.points}
             closed
-            stroke="black"
+            stroke={this.props.stroke}
             draggable
-            fill={this.state.fill[this.state.colorIndex]}
-            onDragStart={() => {
-                this.setState({
-                    isDragging: true
-                });
-            }}
-            onDragEnd={() => (
-                this.setState({
-                    isDragging: false
-                })
-            )}
+            fill={this.props.colors[this.props.colorIndex]}
+            onDragStart={this.props.handleDragStart}
+            onDragEnd={this.props.handleDragEnd}
+            onClick={this.colorChange}
         />
         );
     };

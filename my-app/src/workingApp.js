@@ -9,9 +9,6 @@ import Refresh from "./components/Header/Refresh";
 import Save from "./components/Header/Save";
 import Delete from "./components/Header/Delete";
 
-// import Hexagon2 from "./components/shapes/hexagon2";
-// import Hexagon3 from "./components/shapes/hexagon3";
-// import Hexagon4 from "./components/shapes/hexagon4";
 import Rectangle from "./components/shapes/rectangle";
 // import Rectangle2 from './components/shapes/reactangle2';
 // import Rectangle3 from "./components/shapes/rectangle3";
