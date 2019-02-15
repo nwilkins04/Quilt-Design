@@ -5,7 +5,9 @@ import Rectangle from "./components/shapes/rectangle";
 import Square from "./components/shapes/square";
 import Diamond from "./components/shapes/diamond";
 import Hexagon from "./components/shapes/hexagon";
+import Hexagon2 from "./components/shapes/hexagon2";
 import Triangle from "./components/shapes/triangle";
+import Triangle2 from "./components/shapes/triangle2";
 import "./App.css";
 import Delete from "./components/Header/Delete";
 import Refresh from "./components/Header/Refresh";
@@ -13,7 +15,7 @@ import Title from "./components/Header/Title";
 import Save from "./components/Header/Save";
 import Colors from "./components/colors/colors";
 
-const ComponentMap = {'rectangle': Rectangle, 'square':Square, 'diamond':Diamond, 'hexagon':Hexagon, 'triangle': Triangle}
+const ComponentMap = {'rectangle': Rectangle, 'square':Square, 'diamond':Diamond, 'hexagon':Hexagon, 'hexagon2':Hexagon2, 'triangle': Triangle, 'triangle2': Triangle2}
 
 const colors = ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"]
 
@@ -22,7 +24,9 @@ const defaultShapes ={
   "Square": {shape: 'square', props: {x: 250, y:50, stroke: 'black', width: 50, height: 50, colorIndex: 0}},
   "Diamond": {shape: 'diamond', props: {x:350, y:200, stroke: 'black', points: [0, 5, 25, 40, 2, 80, 0, 85, -25, 40], colorIndex: 0}},
   "Hexagon": {shape: 'hexagon', props: {x:30, y:250, stroke: 'black', points: [0, -5, 50, -5, 75, 40, 50, 85, 0, 85, -25, 40], colorIndex: 0}},
-  "Triangle": {shape: 'triangle', props:{x: 10, y: 125, stroke: 'black', points: [55, 50, 10, 50, 55, 100], colorIndex: 0}}
+  "Hexagon2": {shape: 'hexagon2', props: {x: 140, y:250, stroke: 'black', points: [0, -5, 50, -5, 75, 40, 50, 85], colorIndex: 0}},
+  "Triangle": {shape: 'triangle', props: {x: 10, y: 125, stroke: 'black', points: [55, 50, 10, 50, 55, 100], colorIndex: 0}},
+  "Triangle2": {shape: 'triangle2', props: {x:70, y:125, stroke: 'black', points: [10, 100, 10, 50, 55, 100], colorIndex: 0}}
 }
 
 const random = num => Math.floor(Math.random() * num) + 1;
@@ -39,23 +43,25 @@ class App extends Component {
       {shape: 'rectangle', props: {x: 325, y:25, stroke:'black', width:50, height:100, colorIndex: 0, shapeIndex: 0}},
       {shape: 'square', props: {x: 250, y: 50, stroke: 'black', width: 50, height: 50, colorIndex: 0, shapeIndex: 1}},
       {shape: 'diamond', props: {x:350, y:200, stroke: 'black', points: [0, 5, 25, 40, 2, 80, 0, 85, -25, 40], colorIndex: 0, shapeIndex: 2}},
-      {shape: 'hexagon', props: {x: 30, y:250, stroke: 'black', points:[0, -5, 50, -5, 75, 40, 50, 85, 0, 85, -25, 40], colorIndex: 0, shapeIndex: 3}},
-      {shape: 'triangle', props: {x: 10, y: 125, stroke: 'black', points:[55, 50, 10, 50, 55, 100], colorIndex: 0, shapeIndex: 4}}
+      {shape: 'hexagon', props: {x: 30, y:250, stroke: 'black', points: [0, -5, 50, -5, 75, 40, 50, 85, 0, 85, -25, 40], colorIndex: 0, shapeIndex: 3}},
+      {shape: 'hexagon2', props: {x: 140, y: 250, stroke: 'black', points: [0, -5, 50, -5, 75, 40, 50, 85], colorIndex: 0, shapeIndex: 4}},
+      {shape: 'triangle', props: {x: 10, y: 125, stroke: 'black', points: [55, 50, 10, 50, 55, 100], colorIndex: 0, shapeIndex: 5}},
+      {shape: 'triangle2', props: {x: 70, y: 125, stroke: 'black', points: [10, 100, 10, 50, 55, 100], colorIndex: 0, shapeIndex: 6}}
     ],
-    shapeCounter: 5
+    shapeCounter: 7
   }
 
   addShape = (event) => {
     let newElement
     let currentShapeCounter = this.state.shapeCounter
 
-    console.log('shape class name: ', event.target.attrs)
+    console.log('shape class name: ', event.target.attrs.className)
     switch(event.target.attrs.className) {
-      case("Rectangle"):
-      newElement = defaultShapes.Tall
+      case("TallRectangle"):
+      newElement = defaultShapes.Rectangle
       break;
       case("Square"):
-      newElement = defaultShapes.Small
+      newElement = defaultShapes.Square
       break;
       case("Diamond"):
       newElement = defaultShapes.Diamond
@@ -63,8 +69,14 @@ class App extends Component {
       case("Hexagon"):
       newElement = defaultShapes.Hexagon
       break;
+      case("Hexagon2"):
+      newElement = defaultShapes.Hexagon2
+      break;
       case("Triangle"):
       newElement = defaultShapes.Triangle
+      break;
+      case("Triangle2"):
+      newElement = defaultShapes.Triangle2
       break;
     default:
       console.log("not a recognized shape")

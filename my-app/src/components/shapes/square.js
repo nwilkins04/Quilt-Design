@@ -27,7 +27,7 @@ class Square extends Component {
 
     render() {
         return(
-        <Rect className="Small"
+        <Rect className="Square"
             x={this.props.x}
             y={this.props.y}
             width={this.props.width}
