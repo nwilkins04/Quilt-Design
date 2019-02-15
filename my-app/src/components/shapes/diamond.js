@@ -28,7 +28,7 @@ class Diamond extends Component {
 
     render() {
         return(
-        <Line 
+        <Line className="Diamond"
             x={this.props.x}
             y={this.props.y}
             points={this.props.points}

@@ -27,7 +27,7 @@ class Rectangle extends Component {
 
     render() {
         return(
-        <Rect
+        <Rect className="Tall"
             x={this.props.x}
             y={this.props.y}
             width={this.props.width}

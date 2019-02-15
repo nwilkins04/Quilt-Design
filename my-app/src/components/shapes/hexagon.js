@@ -27,7 +27,7 @@ class Hexagon extends Component {
 
     render() {
         return(
-        <Line 
+        <Line className="Hexagon"
             x={this.props.x}
             y={this.props.y}
             points={this.props.points}
