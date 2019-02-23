@@ -11,6 +11,7 @@ import Hexagon3 from "./components/shapes/hexagon3";
 import Hexagon4 from "./components/shapes/hexagon4";
 import Hexagon5 from "./components/shapes/hexagon5";
 import Hexagon6 from "./components/shapes/hexagon6";
+import Hexagon7 from "./components/shapes/hexagon7";
 import Triangle from "./components/shapes/triangle";
 import Triangle2 from "./components/shapes/triangle2";
 import "./App.css";
@@ -20,7 +21,7 @@ import Title from "./components/Header/Title";
 import Save from "./components/Header/Save";
 import Colors from "./components/colors/colors";
 
-const ComponentMap = {'rectangle': Rectangle, 'rectangle2': Rectangle2, 'square':Square, 'diamond':Diamond, 'hexagon':Hexagon, 'hexagon2':Hexagon2, 'hexagon3':Hexagon3, 'hexagon4':Hexagon4, 'hexagon5':Hexagon5,'hexagon6':Hexagon6, 'triangle': Triangle, 'triangle2': Triangle2}
+const ComponentMap = {'rectangle': Rectangle, 'rectangle2': Rectangle2, 'square':Square, 'diamond':Diamond, 'hexagon':Hexagon, 'hexagon2':Hexagon2, 'hexagon3':Hexagon3, 'hexagon4':Hexagon4, 'hexagon5':Hexagon5,'hexagon6':Hexagon6, 'hexagon7':Hexagon7, 'triangle': Triangle, 'triangle2': Triangle2}
 
 const colors = ["lightgrey", "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "white"]
 
@@ -35,6 +36,7 @@ const defaultShapes ={
   "Hexagon4": {shape: 'hexagon4', props: {x:130, y:100, stroke: 'black', points: [0, -5, 50, -5,  75, 40, 50, 40, -25, 40], colorIndex: 0}},
   "Hexagon5": {shape: 'hexagon5', props: {x:200, y:150, stroke: 'black', points: [23, 80, -1, 35, 25, -10, 73, -10], colorIndex: 0}},
   "Hexagon6": {shape: 'hexagon6', props: {x:400, y:100, stroke: 'black', points: [25, -5, 50, 40, 25, 85, -25, 85], colorIndex:0}},
+  "Hexagon7": {shape: 'hexagon7', props: {x:400, y:200, stroke:'black', points:[75, 88, 24, 90, 0, 45, 26, 0], colorIndex:0}},
   "Triangle": {shape: 'triangle', props: {x: 10, y: 125, stroke: 'black', points: [55, 50, 10, 50, 55, 100], colorIndex: 0}},
   "Triangle2": {shape: 'triangle2', props: {x:70, y:125, stroke: 'black', points: [10, 100, 10, 50, 55, 100], colorIndex: 0}}
 }
@@ -60,10 +62,11 @@ class App extends Component {
       {shape: 'hexagon4', props: {x:130, y:100, stroke:'black', points: [0, -5, 50, -5, 75, 40, 50, 40, -25, 40], colorIndex: 0, shapeIndex: 7}},
       {shape: 'hexagon5', props: {x:200, y:150, stroke: 'black', points:[23, 80, -1, 35, 25, -10, 73, -10], colorIndex: 0, shapeIndex:8}},
       {shape: 'hexagon6', props: {x:400, y:100, stroke: 'black', points:[25, -5, 50, 40, 25, 85, -25, 85], colorIndex:0, shapeIndex:9}},
-      {shape: 'triangle', props: {x: 10, y: 125, stroke: 'black', points: [55, 50, 10, 50, 55, 100], colorIndex: 0, shapeIndex: 10}},
-      {shape: 'triangle2', props: {x: 70, y: 125, stroke: 'black', points: [10, 100, 10, 50, 55, 100], colorIndex: 0, shapeIndex: 11}}
+      {shape: 'hexagon7', props: {x:400, y:200, stroke:'black', points:[75, 88, 24, 90, 0, 45, 26, 0], colorIndex:0, shapeIndex:10}},
+      {shape: 'triangle', props: {x: 10, y: 125, stroke: 'black', points: [55, 50, 10, 50, 55, 100], colorIndex: 0, shapeIndex: 11}},
+      {shape: 'triangle2', props: {x: 70, y: 125, stroke: 'black', points: [10, 100, 10, 50, 55, 100], colorIndex: 0, shapeIndex: 12}}
     ],
-    shapeCounter: 12
+    shapeCounter: 13
   }
 
   addShape = (event) => {
@@ -101,6 +104,9 @@ class App extends Component {
       break;
       case("Hexagon6"):
       newElement = defaultShapes.Hexagon6
+      break;
+      case("Hexagon7"):
+      newElement = defaultShapes.Hexagon7
       break;
       case("Triangle"):
       newElement = defaultShapes.Triangle
