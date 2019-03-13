@@ -8,15 +8,18 @@ class Members extends Component {
     render() {
         return (
             <div className="memberPage">
-            <div className= "App"><Title/></div>
-            <div className="container">
-                <div className="SavedQuilts">
-                    <h2>Your Saved Quilts</h2>
+                <header>
+                <strong>Welcome!</strong>
+                </header>
+                <div className= "App"><Title/></div>
+                <div className="container">
+                    <div className="SavedQuilts">
+                        <h2>Your Saved Quilts</h2>
+                    </div>
+                    <div className="LargerView">
+                        <h2>View Your Quilts Here</h2>
+                    </div>
                 </div>
-                <div className="LargerView">
-                    <h2>View Your Quilts Here</h2>
-                </div>
-            </div>
             </div>
         );
     }
