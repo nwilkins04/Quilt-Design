@@ -17,7 +17,13 @@ class Members extends Component {
                         <h2>Your Saved Quilts</h2>
                     </div>
                     <div className="LargerView">
-                        <h2>View Your Quilts Here</h2>
+                        <h2>Quilting Resources</h2>
+                        <p>
+                            <li><a href = "https://quiltersresources.com/">Quilters Resources</a></li>
+                            <li><a href = "https://www.textileartist.org/top-10-quilting-books">Top 10 quilting books</a></li>
+                            <li><a href = "https://www.brewersewing.com/">Brewer Sewing</a></li>
+                            <li><a href = "https://www.yelp.com/search?find_desc=Quilt+Shop&find_loc=Orlando%2C+FL">Local Quilt Shops</a></li>
+                        </p>
                     </div>
                 </div>
             </div>
